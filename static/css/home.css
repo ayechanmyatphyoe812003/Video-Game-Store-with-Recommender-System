@@ -1,0 +1,211 @@
+.container {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.middle {
+  margin-top: 40px;
+}
+.top {
+  display: flex;
+  flex-direction: row;
+}
+.top-left {
+  width: 55%;
+}
+.top-left img {
+  width: 100%;
+}
+.top-right {
+  width: 45%;
+  margin-left: 20px;
+}
+
+.top-right h2 {
+  font-size: 2.5rem;
+}
+
+.top-right span {
+  color: var(--color-red);
+  font-weight: 800;
+}
+.top-right p {
+  font-size: 1.2rem;
+  line-height: 30px;
+}
+
+.bottom {
+  margin-top: 30px;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 800ms ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+.slider-header h1 {
+  margin-bottom: 30px;
+  font-size: 2.1rem;
+}
+.slider-header span {
+  color: var(--color-red);
+  margin-right: 30px;
+}
+.top-games-cards,
+.related_games {
+  max-width: 1700px;
+  width: 100%;
+}
+
+.slider-wrapper {
+  position: relative;
+}
+
+.slider-wrapper .slide-button {
+  position: absolute;
+  top: 50%;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  z-index: 5;
+  color: black;
+  display: flex;
+  cursor: pointer;
+  font-size: 2.2rem;
+  background: #ffffff;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  border: 1px solid black;
+}
+
+.slider-wrapper .slide-button:hover {
+  background: #000000;
+  color: white;
+}
+
+.slider-wrapper .slide-button#prev-slide {
+  left: -25px;
+  display: none;
+}
+
+.slider-wrapper .slide-button#next-slide {
+  right: -25px;
+}
+
+.slider-wrapper .image-list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  font-size: 0;
+  list-style: none;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.slider-wrapper .image-list::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-wrapper .image-list .image-item {
+  width: 340px;
+  height: 170px;
+  object-fit: cover;
+}
+
+.slider-scrollbar {
+  height: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.slider-scrollbar .scrollbar-track {
+  background: #ccc;
+  width: 100%;
+  height: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+}
+
+.slider-scrollbar:hover .scrollbar-track {
+  height: 4px;
+}
+
+.slider-scrollbar .scrollbar-thumb {
+  position: absolute;
+  background: var(--color-red);
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  cursor: grab;
+  border-radius: inherit;
+}
+
+.slider-scrollbar .scrollbar-thumb:active {
+  cursor: grabbing;
+  height: 8px;
+  top: -2px;
+}
+
+.slider-scrollbar .scrollbar-thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  bottom: -10px;
+}
+
+.suggest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.suggest p {
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+.link {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+}
+.top-right a,
+.suggest a {
+  text-decoration: none;
+  color: var(--color-red);
+  font-size: 1.3rem;
+  position: relative;
+}
+.top-right a::after,
+.suggest a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+.top-right a:hover::after,
+.suggest a:hover::after {
+  width: 100%;
+}

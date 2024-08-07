@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block head %}
+<title>Payment Success</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/success.css') }}"
+/>
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+<div class="container">
+  <h1>Thank you for your purchase, <br />{{ customer.name }}!</h1>
+  <p>Your order has been successfully processed.</p>
+  <a href="{{ url_for('library') }}">Go to your library</a>
+</div>
+{% endblock %}

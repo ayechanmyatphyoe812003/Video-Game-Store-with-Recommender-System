@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{ customer.name }}'s Library</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/library.css') }}"
+/>
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+<div class="container hidden">
+  <div class="links">
+    <span>//</span>
+    <a href="{{ url_for('profile') }}">My Profile</a>
+    <a href="{{ url_for('library') }}" class="active">Library</a>
+  </div>
+  <div class="card-middle">
+    {% if games %}
+    <div class="game-rows">
+      {% for game in games %}
+      <div class="game-row">
+        <div class="pic-name">
+          <img src="{{ game.header_image }}" alt="{{ game.name }}" />
+          <h2>{{ game.name }}</h2>
+        </div>
+        <a
+          href="{{ url_for('remove_from_library', game_id=game.app_id) }}"
+          class="close"
+        >
+          <span class="material-symbols-outlined"> close </span>
+        </a>
+        <a
+          href="{{ url_for('game_detail', game_id=game.app_id) }}"
+          class="play"
+        >
+          Play <span class="material-symbols-outlined"> play_arrow </span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-library">
+      <p>Add something to your library!</p>
+      <a href="{{ url_for('all_games') }}" class="btn">Show me all games</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

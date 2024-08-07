@@ -1,0 +1,97 @@
+.login-card {
+  background-color: transparent;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  margin: 20px auto;
+}
+
+.login-card h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+  margin-right: 25px;
+}
+
+.log-in-header {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.log-in-header span {
+  color: var(--color-red);
+  margin-right: 60px;
+}
+.log-in-header img {
+  width: 110px;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: white;
+  font-size: 1.1rem;
+  caret-color: var(--color-red);
+}
+.form-group input:focus {
+  outline: none;
+  border-bottom: 1px solid var(--color-red);
+}
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.login-card button:hover {
+  background-color: var(--color-red);
+  border: none;
+}
+
+.login-text {
+  margin-bottom: 20px;
+}
+.login-text a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.694);
+  position: relative;
+}
+
+.login-text a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+.login-text a:hover::after {
+  width: 100%;
+}
+
+.flash-messages {
+  color: var(--color-red);
+}

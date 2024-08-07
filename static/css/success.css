@@ -1,0 +1,42 @@
+/* General Container Styling */
+.container {
+  width: 30%;
+  margin: 100px auto;
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Header Styling */
+.container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--color-red); /* Use a contrasting color for emphasis */
+}
+
+/* Paragraph Styling */
+.container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Link Styling */
+.container a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-red); /* Use the same contrasting color */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.container a:hover {
+  background-color: #ffffff;
+  color: red;
+  font-weight: 550;
+}

@@ -1,0 +1,110 @@
+{% extends 'base.html' %} {% block head %}
+<title>Home Page</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/home.css') }}"
+/>
+<script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %} {% block body %}
+<div class="container hidden">
+  <div class="middle">
+    <div class="top">
+      <div class="top-left">
+        <img
+          src="{{ url_for('static', filename='images/home.jpg') }}"
+          alt="pic"
+        />
+      </div>
+      <div class="top-right">
+        <h2>Welcome to Game <span>Oasis</span></h2>
+        <p>
+          <span>//</span>
+          Game Oasis is every gamer's paradise! A heaven for professionals and
+          beginners. Not sure what to play? We can make personalized suggestions
+          to suit your tastes. Game Oasis is your one-stop shop for epic
+          adventures.
+        </p>
+        <div class="link">
+          <a href="{{ url_for('all_games') }}">Explore All Games </a>
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Games Section -->
+    <div class="bottom">
+      <div class="slider-header">
+        <h1><span>//</span>Top Games of Our Store</h1>
+      </div>
+      <div class="top-games-cards">
+        <div class="slider-wrapper">
+          <button id="prev-slide" class="slide-button material-symbols-rounded">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <ul class="image-list">
+            {% for game in top_games %}
+            <li>
+              <a href="{{ url_for('game_detail', game_id=game[0]) }}">
+                <img
+                  class="image-item"
+                  src="{{ game[2] }}"
+                  alt="{{ game[1] }}"
+                />
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          <button id="next-slide" class="slide-button material-symbols-rounded">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+        </div>
+        <div class="slider-scrollbar">
+          <div class="scrollbar-track">
+            <div class="scrollbar-thumb"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended Games Section -->
+      {% if recommended_games %}
+      <div class="slider-header">
+        <h1><span>//</span>For You Based On Past Activities</h1>
+      </div>
+      <div class="related_games">
+        <div class="slider-wrapper">
+          <button id="prev-slide" class="slide-button material-symbols-rounded">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </button>
+          <ul class="image-list">
+            {% for game in recommended_games %}
+            <li>
+              <a href="{{ url_for('game_detail', game_id=game[0]) }}">
+                <img
+                  class="image-item"
+                  src="{{ game[2] }}"
+                  alt="{{ game[1] }}"
+                />
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          <button id="next-slide" class="slide-button material-symbols-rounded">
+            <span class="material-symbols-outlined"> chevron_right </span>
+          </button>
+        </div>
+        <div class="slider-scrollbar">
+          <div class="scrollbar-track">
+            <div class="scrollbar-thumb"></div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="suggest">
+        <p>Are you lost in this Oasis?</p>
+        <a href="{{ url_for('questions') }}">Suggest me something</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

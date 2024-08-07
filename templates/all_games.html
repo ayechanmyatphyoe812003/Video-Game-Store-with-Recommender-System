@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block head %}
+<title>All Games</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/all_games.css') }}"
+/>
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+<div class="container hidden">
+  <div class="title">
+    <h1><span>//</span> All Games</h1>
+  </div>
+  <div class="game-grid">
+    {% for game in game_list %}
+    <a href="{{ url_for('game_detail', game_id=game.app_id) }}">
+      <img src="{{ game.header_image }}" alt="Game Image" />
+    </a>
+    {% if loop.index % 4 == 0 %}
+  </div>
+  <div class="game-grid">{% endif %} {% endfor %}</div>
+
+  <!-- Pagination Links -->
+  <div class="pagination">
+    {% if page > 1 %}
+    <div class="links">
+      <span class="material-symbols-outlined"> chevron_left </span>
+      <a href="{{ url_for('all_games', page=page-1) }}">Previous</a>
+    </div>
+    {% endif %} {% if game_list|length == games_per_page %}
+    <div class="links">
+      <a href="{{ url_for('all_games', page=page+1) }}">Next</a>
+      <span class="material-symbols-outlined"> chevron_right </span>
+    </div>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block head %}
+<title>Sign Up</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/register.css') }}"
+/>
+
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+<div class="signup-card hidden">
+  <div class="sign-up-header">
+    <h2><span>//</span>Sign Up</h2>
+    <img src="{{ url_for('static', filename='images/pic.png') }}" alt="pic" />
+  </div>
+
+  <!-- Flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div id="flash-messages" class="flash-messages">
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  </div>
+
+  {% endif %} {% endwith %}
+
+  <form method="POST" action="{{ url_for('register') }}">
+    <div class="form-group">
+      <label for="name">Username</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirm-password"
+        required
+      />
+    </div>
+    <p class="login-text">
+      Already have an account?
+      <a href="{{ url_for('login') }}">Log in here</a>
+    </p>
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+{% endblock %}

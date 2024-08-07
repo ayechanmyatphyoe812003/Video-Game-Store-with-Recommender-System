@@ -1,0 +1,84 @@
+.container {
+  width: 800px;
+  margin: auto;
+}
+
+.container-top {
+  width: 75%;
+  margin: auto;
+}
+
+.container-top img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.container-middle {
+  width: 75%;
+  margin: auto;
+}
+.name-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.name-button h2 span {
+  color: var(--color-red);
+  margin-right: 30px;
+}
+.name-button .btn {
+  color: var(--color-red);
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.name-button .btn:hover {
+  color: rgb(184, 0, 0);
+}
+.name-button button {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+.shopping {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.shopping:hover {
+  color: grey;
+}
+.name-button span {
+  font-size: 2.4rem;
+}
+.name-button h2 {
+  font-size: 2rem;
+}
+.container-bottom {
+  width: 75%;
+  display: flex;
+  margin: auto;
+  gap: 0.75em;
+}
+.container-bottom img {
+  width: 33%;
+}
+.container-middle {
+  line-height: 20px;
+}
+.btn {
+  display: flex;
+  align-items: center;
+}

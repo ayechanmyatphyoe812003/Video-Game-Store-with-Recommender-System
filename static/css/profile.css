@@ -1,0 +1,112 @@
+.user-profile-container .main-profile-content {
+  padding-top: 50px;
+}
+.user-profile-container .main-profile-content .profile-card {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid white;
+}
+.main-profile-content .profile-card h1 {
+  margin-bottom: 2%;
+}
+.main-profile-content .profile-card form {
+  display: flex;
+  flex-direction: column;
+}
+.main-profile-content .profile-card label {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.main-profile-content .profile-card input {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+.main-profile-content .profile-card input[type="text"],
+input[type="email"] {
+  font-size: 1rem;
+  font-weight: 450;
+  color: white;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+}
+input[type="text"]:focus,
+input[type="email"]:focus {
+  background-color: transparent;
+  color: white;
+  outline: red;
+}
+.main-profile-content .profile-card button,
+.main-profile-content .profile-card a {
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.main-profile-content .profile-card button:hover,
+.main-profile-content .profile-card a:hover {
+  background-color: red;
+  color: white;
+}
+
+.links {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 2%;
+  margin-left: 33%;
+}
+.links a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.links .active {
+  font-weight: 600;
+}
+
+.links a:hover {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Add the underline effect */
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.links a:active::after {
+  width: 100%;
+}
+
+.links span {
+  color: var(--color-red);
+  font-weight: 700;
+  font-size: 1.5rem;
+}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block head %}
+<title>Log In</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/login.css') }}"
+/>
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+  <div class="login-card hidden">
+    <div class="log-in-header">
+      <h2><span>//</span>Log In</h2>
+      <img src="{{ url_for('static', filename='images/pic1.png') }}" alt="" />
+    </div>
+
+    <form method="POST" action="{{ url_for('login') }}">
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-messages" id="flash-messages">
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+        
+      {% endif %}
+    {% endwith %}
+      <p class="login-text">
+        Don't have an account?
+        <a href="{{ url_for('register') }}">Sign up here</a>
+      </p>
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+  {% endblock %}
+</body>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block head %}
+<title>Suggested Games</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/suggest.css') }}"
+/>
+<script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+{% endblock %} {% block body %}
+<div class="container hidden">
+  <div class="title">
+    <h1><span>//</span> Top Related Games</h1>
+  </div>
+
+  {% if games %}
+  <div class="cards-container">
+    {% for game in games %}
+    <div class="card">
+      <a href="{{ url_for('game_detail', game_id=game.app_id) }}">
+        <img src="{{ game.header_image }}" alt="Game Image" />
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="no-results">
+    <h2>Found nothing :"(</h2>
+    <a href="{{ url_for('questions') }}">Let's Find Out Again</a>
+  </div>
+  {% endif %}
+
+  <div class="back-to-home">
+    <a href="{{ url_for('home') }}"
+      >Back To Home<span class="material-symbols-outlined"
+        >chevron_right</span
+      ></a
+    >
+  </div>
+</div>
+{% endblock %}

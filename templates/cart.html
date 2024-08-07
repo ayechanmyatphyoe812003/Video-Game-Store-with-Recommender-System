@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block head %}
+<title>Shopping Cart</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/cart.css') }}"
+/>
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+<div class="container">
+  <div class="cart-header">
+    <h1><span>//</span>Shopping Cart</h1>
+  </div>
+  <div class="card-middle">
+    {% if cart %}
+    <div class="game-rows">
+      {% for game_id, game in cart.items() %}
+      <div class="game-row">
+        <div class="pic-name">
+          <img src="{{ game['header_image'] }}" alt="{{ game['name'] }}" />
+          <h2>{{ game['name'] }}</h2>
+        </div>
+        <p>{{ game['price'].replace(' USD', '') }}</p>
+        <form
+          action="{{ url_for('remove_from_cart', game_id=game_id) }}"
+          method="post"
+        >
+          <a
+            href="{{ url_for('remove_from_cart', game_id=game_id) }}"
+            class="remove-button"
+          >
+            <span class="material-symbols-outlined"> close </span>
+          </a>
+        </form>
+      </div>
+      {% endfor %}
+      <div class="total">
+        <h1>Total Amount</h1>
+        <h2>${{ "%.2f" | format(total_amount) }}</h2>
+      </div>
+    </div>
+    <div class="card-bottom">
+      <a href="{{ url_for('all_games') }}">
+        <span class="material-symbols-outlined"> chevron_left </span>Continue
+        Shopping</a
+      >
+      <a href="{{ url_for('payment') }}">
+        Proceed to CheckOut<span class="material-symbols-outlined">
+          chevron_right
+        </span></a
+      >
+    </div>
+    {% else %}
+    <div class="empty-cart">
+      <p>Your cart is empty. Add something!</p>
+      <a href="{{ url_for('home') }}" class="btn">Show me all games</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,191 @@
+{% extends 'base.html' %} {% block head %}
+<title>Questions</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/questions.css') }}"
+/>
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+<div class="questions-container">
+  <form action="{{ url_for('recommend') }}" method="post">
+    <section class="hidden">
+      <div class="questions">
+        <div class="question-title">
+          <p><span>//</span>I am interested in playing these categories:</p>
+        </div>
+        <div class="checkboxes">
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="categories"
+              value="Single-player"
+              onclick="changeColor(this)"
+            />
+            Single Player
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="categories"
+              value="Multi-player"
+              onclick="changeColor(this)"
+            />
+            Multi Player
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="categories"
+              value="PvP"
+              onclick="changeColor(this)"
+            />
+            PvP
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="categories"
+              value="Co-op"
+              onclick="changeColor(this)"
+            />
+            Co-op
+          </label>
+        </div>
+        <a href="#payment">Next ></a>
+      </div>
+    </section>
+
+    <section class="hidden" id="payment">
+      <div class="questions">
+        <div class="question-title">
+          <p><span>//</span>I am interested in :</p>
+        </div>
+        <div class="checkboxes">
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="payment"
+              value="Free to Play"
+              onclick="changeColor(this)"
+            />
+            Free-to-Play Games
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="payment"
+              value="Paid Games"
+              onclick="changeColor(this)"
+            />
+            Paid Games
+          </label>
+        </div>
+        <a href="#genres">Next ></a>
+      </div>
+    </section>
+
+    <section class="hidden" id="genres">
+      <div class="questions">
+        <div class="question-title">
+          <p><span>//</span>I am interested in playing these genres:</p>
+        </div>
+        <div class="checkboxes">
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="genres"
+              value="Indie"
+              onclick="changeColor(this)"
+            />
+            Indie
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="genres"
+              value="Racing"
+              onclick="changeColor(this)"
+            />
+            Racing
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="genres"
+              value="Action"
+              onclick="changeColor(this)"
+            />
+            Action
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="genres"
+              value="Adventure"
+              onclick="changeColor(this)"
+            />
+            Adventure
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="genres"
+              value="Sports"
+              onclick="changeColor(this)"
+            />
+            Sports
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="genres"
+              value="RPG"
+              onclick="changeColor(this)"
+            />
+            RPG
+          </label>
+        </div>
+        <a href="#platforms">Next ></a>
+      </div>
+    </section>
+
+    <section class="hidden" id="platforms">
+      <div class="questions">
+        <div class="question-title">
+          <p><span>//</span>I will play games on these platforms :</p>
+        </div>
+        <div class="checkboxes">
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="platforms"
+              value="windows"
+              onclick="changeColor(this)"
+            />
+            Windows
+          </label>
+          <label class="checkbox-button">
+            <input
+              type="checkbox"
+              name="platforms"
+              value="mac"
+              onclick="changeColor(this)"
+            />
+            Mac
+          </label>
+        </div>
+      </div>
+
+      <button type="submit">
+        Let's find out<span class="material-symbols-outlined">
+          chevron_right
+        </span>
+      </button>
+    </section>
+  </form>
+</div>
+
+{% endblock %}

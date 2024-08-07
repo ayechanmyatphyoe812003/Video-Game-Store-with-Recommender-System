@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{ game.name }}</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/game_details.css') }}"
+/>
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+<div class="container hidden">
+  <div class="container-top">
+    <img src="{{ game.header_image }}" alt="{{ game.name }}" />
+  </div>
+  <div class="container-middle">
+    <div class="name-button">
+      <h2><span>//</span>{{ game.name }}</h2>
+      {% if in_library %}
+      <a href="{{ url_for('library') }}" class="shopping">
+        <span class="material-symbols-outlined"> done_all </span>
+      </a>
+      {% elif not game.price_final_formatted %}
+      <a
+        href="{{ url_for('add_to_library', game_id=game.app_id, game_name=game.name) }}"
+        class="btn btn-success"
+        ><span class="material-symbols-outlined"> add </span>
+      </a>
+      {% else %} {% if session.cart and game.app_id|string in session.cart %}
+      <a href="{{ url_for('view_cart') }}" class="shopping">
+        <span class="material-symbols-outlined"> shopping_cart_checkout </span>
+      </a>
+      {% else %}
+      <a
+        href="{{ url_for('add_to_cart', game_id=game.app_id) }}"
+        class="btn btn-primary"
+        ><span class="material-symbols-outlined"> shopping_cart </span>
+      </a>
+      {% endif %} {% endif %}
+    </div>
+    <p>{{ game.about_the_game | safe }}</p>
+    <p><strong>Category:</strong> {{ game.categories }}</p>
+    <p><strong>Genres :</strong> {{ game.genres }}</p>
+    {% if game.price_final_formatted %}
+    <p><strong>Price :</strong> {{ game.price_final_formatted }}</p>
+    {% endif %}
+    <p><strong>Released Date :</strong> {{ game.ReleaseDate }}</p>
+  </div>
+  <div class="container-bottom">
+    <img src="{{ game.screenshot1 }}" alt="Screenshot 1" />
+    <img src="{{ game.screenshot2 }}" alt="Screenshot 2" />
+    <img src="{{ game.screenshot3 }}" alt="Screenshot 3" />
+  </div>
+</div>
+{% endblock %}

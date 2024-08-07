@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block head %}
+<title>My Profile</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/profile.css') }}"
+/>
+<script
+  defer
+  src="{{ url_for('static', filename='js/questions.js') }}"
+></script>
+{% endblock %} {% block body %}
+<div class="user-profile-container hidden">
+  <div class="main-profile-content">
+    <div class="links">
+      <span>//</span>
+      <a href="{{ url_for('profile') }}" class="active">My Profile</a>
+      <a href="{{ url_for('library') }}">Library</a>
+    </div>
+    <div class="profile-card">
+      <form action="" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ name }}" readonly />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value="{{ email }}"
+          readonly
+        />
+
+        <button type="button" id="editButton">Edit Profile</button>
+        <button type="submit" id="updateButton" style="display: none">
+          Update Information
+        </button>
+        <a href="{{ url_for('logout') }}">Log Out</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("editButton").addEventListener("click", function () {
+    var inputs = document.querySelectorAll("input[readonly]");
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].removeAttribute("readonly");
+    }
+    document.getElementById("editButton").style.display = "none";
+    document.getElementById("updateButton").style.display = "block";
+  });
+</script>
+{% endblock %}
